@@ -18,7 +18,7 @@
 </head>
 <body>
 	<div style="text-align: center;">
-		<form action="login.check" method="post" onsubmit="return formTest();">
+		<form action="login.in" method="post" onsubmit="return formTest();">
 			<h2>LOGIN</h2>
 			<label style="width: 100px;">아이디 : </label>
 			<input type="text" id="idInput" name="idInput" placeholder="아이디를 입력하세요"/>

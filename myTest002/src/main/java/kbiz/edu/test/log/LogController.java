@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class LogController {
 		return "/log/login";
 	}
 	
-	@RequestMapping("login.check")
+	@RequestMapping("log.in")
 	public ModelAndView loginCheck(ModelAndView mav, HttpServletRequest request) {
 		String id = request.getParameter("idInput");
 		String password = request.getParameter("passwordInput");
@@ -28,11 +29,22 @@ public class LogController {
 		info.put("password", password);
 		
 //		List<Map<String,String>> list = 
-		if() {
+		if(password.length() > 0) {
 			mav.addObject("msg", "SUCCESS");
+		} else {
+			mav.addObject("msg", "FAIL");
 		}
-		
+		mav.setViewName("main");
 				
+		return mav;
+	}
+	
+	@RequestMapping("log.out")
+	public ModelAndView logout(ModelAndView mav, HttpSession session) {
+		
+		mav.addObject("test","validate");
+		mav.setViewName("/log/login");
+		
 		return mav;
 	}
 }
